@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn test'
+                sh mvn test
             }
         }
         stage('Test') { 
             steps {
-                sh 'mvn test'
+                sh mvn test
             }
         }
         stage('Deploy') { 
             steps {
-                sh 'mvn package'
+                sh mvn verify
             }
         }
     }
