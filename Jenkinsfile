@@ -1,24 +1,27 @@
 pipeline {
-    agent any 
+    agent any
+    tools {
+        maven 'Maven 3.6.3'
+    }
     stages {
         stage('Build') { 
             steps {
                 echo '---------------------------------------------------'
-                mvn compile
+                sh 'mvn compile'
                 echo '---------------------------------------------------'
             }
         }
         stage('Test') { 
             steps {
                 echo '---------------------------------------------------'
-                mvn test
+                sh 'mvn test'
                 echo '---------------------------------------------------'
             }
         }
         stage('Deploy') { 
             steps {
                 echo '---------------------------------------------------'
-                mvn install
+                sh 'mvn install'
                 echo '---------------------------------------------------'
             }
         }
