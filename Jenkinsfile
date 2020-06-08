@@ -7,7 +7,9 @@ pipeline {
         stage('Build') { 
             steps {
                 echo '---------------------------------------------------'
-                sh 'mvn compile'
+                withMaven(maven : 'apache-maven-3.6.3){
+                          bat 'mvn clean compile'
+                }
                 echo '---------------------------------------------------'
             }
         }
